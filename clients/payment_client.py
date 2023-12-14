@@ -26,8 +26,6 @@ class PaymentRequestClient(BaseClient):
     
     def get_payment(self,id):
         response = self.request.get(url=self.endpoint,params={'id':id}, headers=self.headers)
-        
-        b= 1
         payment_request =  json.loads(response.text)['data'][0]
         return PaymentRequestEntity(**payment_request)
     
